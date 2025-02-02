@@ -1,13 +1,18 @@
-# simple_node_api# install the 64 bit version
 
-# update
+# simple_node_api
+
+
+### install the 64 bit version of raspberry pi os
+
+### update
 sudo apt update && sudo apt upgrade
 
-# enable ssh
+### enable ssh
 sudo raspi-config
-# 3 Interface options
-# I1 ssh
-# Yes
+
+## 3 Interface options
+## I1 ssh
+## Yes
 
 # find the raspberry pi ip addess and take a note of install (look under the wlan0 part)
 ifconfig
