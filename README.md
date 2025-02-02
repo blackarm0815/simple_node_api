@@ -5,32 +5,32 @@
 ### install the 64 bit version of raspberry pi os
 
 ### update
-sudo apt update && sudo apt upgrade
+> sudo apt update && sudo apt upgrade
 
 ### enable ssh
-sudo raspi-config
+> sudo raspi-config
 
 ## 3 Interface options
 ## I1 ssh
 ## Yes
 
 # find the raspberry pi ip addess and take a note of install (look under the wlan0 part)
-ifconfig
+> ifconfig
 
 # ssh in and work remotely from this point
 
 # install stuff
-sudo apt install -y tmux git nginx nodejs npm
+> sudo apt install -y tmux git nginx nodejs npm
 
 # pull this repo
-git clone https://github.com/blackarm0815/simple_node_api.git
-cd simple_node_api
+> git clone https://github.com/blackarm0815/simple_node_api.git
+> cd simple_node_api
 
 # install node dependencies
-npm install
+> npm install
 
 # edit the index.html file with nano and update the ip address in serverIpAddress (ctrl x to exit)
-nano index.html
+> nano index.html
 
 # put the html file in place
 sudo mkdir /var/www/html/api
