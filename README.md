@@ -32,7 +32,9 @@ Interface options > ssh > yes
 
 ### put the html file in place
 > sudo mkdir /var/www/html/api
+
 > sudo cp index.html /var/www/html/api
+
 > sudo cp favicon.ico /var/www/html/api
 
 ### start a tmux session
