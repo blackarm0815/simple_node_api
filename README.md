@@ -4,7 +4,7 @@
 
 ### install the 64 bit version of raspberry pi os
 
-### update
+update
 > sudo apt update && sudo apt upgrade
 
 ### enable ssh
