@@ -10,9 +10,13 @@
 ### enable ssh
 > sudo raspi-config
 
-## 3 Interface options
-## I1 ssh
-## Yes
+enable ssh
+
+3 Interface options
+
+I1 ssh
+
+Yes
 
 # find the raspberry pi ip addess and take a note of install (look under the wlan0 part)
 > ifconfig
