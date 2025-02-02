@@ -1,0 +1,44 @@
+# install the 64 bit version
+
+# update
+sudo apt update && sudo apt upgrade
+
+# enable ssh
+sudo raspi-config
+# 3 Interface options
+# I1 ssh
+# Yes
+
+# ssh in and work remotely from this point
+
+# install stuff
+sudo apt install -y tmux git nginx nodejs npm
+
+# pull this repo
+git clone https://github.com/blackarm0815/user_interface_electronics.git
+cd user_interface_electronics/webpage_led_flash
+
+# install node dependencies
+npm install
+
+# put the html file in place
+sudo mkdir /var/www/html/api
+sudo cp index.html /var/www/html/api
+sudo cp favicon.ico /var/www/html/api
+
+# start a tmux session
+tmux new -s api
+
+# start the node api in tmux
+node api.js
+
+# detach the tmux session
+# ctrl-b then d
+
+# list running tmux sessions
+tmux ls
+
+# reattach the tmux session
+tmux attach -t api
+
+# go to the raspberry pi address in your browser, click the buttons, watch the tmux session

@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+  <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+  <meta content="utf-8" http-equiv="encoding">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <style>
+    #blink {
+      font-size: 200%;
+    }
+  </style>
+  <body>
+    <button id = 'turnOn' type='button'>on</button>
+    <button id = 'turnOff' type='button'>off</button>
+    <script>
+
+// update this
+const serverIpAddress = '192.168.1.84';
+
+const pinTurnOn = () => {
+  fetch(`http://${serverIpAddress}:8000/turnOn`).then((response) => console.log(response));
+};
+
+const pinTurnOff = () => {
+  fetch(`http://${serverIpAddress}:8000/turnOff`).then((response) => console.log(response));
+};
+
+const main = () => {
+  document.getElementById('turnOn').addEventListener('click', pinTurnOn);
+  document.getElementById('turnOff').addEventListener('click', pinTurnOff);
+};
+
+main();
+
+    </script>
+  </body>
+</html>
