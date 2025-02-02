@@ -8,10 +8,9 @@
 update
 > sudo apt update && sudo apt upgrade
 
-enable ssh
+enable ssh (Interface options > ssh > yes)
 > sudo raspi-config
 
-Interface options > ssh > yes
 
 find the raspberry pi ip addess and take a note of install (look under the wlan0 part)
 > ifconfig
