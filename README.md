@@ -4,6 +4,7 @@
 
 ### install the 64 bit version of raspberry pi os
 
+
 update
 > sudo apt update && sudo apt upgrade
 
