@@ -9,14 +9,22 @@ const app = express()
 app.use(cors());
 
 const changeRange = (
-  servoSettingText,
+  rangeValueText,
 ) => {
   let response = 'not understood';
-  const servoSetting = parseInt(servoSettingText, 10);
-  if (!Number.isNaN(servoSetting)) {
-    response = `range set to ${servoSetting}`;
-    console.log(`servo set to ${servoSetting}`);
+  const rangeValue = parseInt(rangeValueText, 10);
+  if (!Number.isNaN(rangeValue)) {
+    response = `range set to ${rangeValue}`;
+    console.log(`range set to ${rangeValue}`);
   }
+  return response;
+};
+
+const changeText = (
+  inputText,
+) => {
+  response = `text input =  ${inputText}`;
+  console.log(`text input =  ${inputText}`);
   return response;
 };
 
@@ -30,7 +38,7 @@ app.get('/', (req, res) => {
 
   // check for servo update
   if (Object.prototype.hasOwnProperty.call(req.query, 'textInput0001')) {
-    response = changeRange(req.query['textInput0001']);
+    response = changeText(req.query['textInput0001']);
   }
 
   // check for servo update
@@ -42,7 +50,6 @@ app.get('/', (req, res) => {
   if (Object.prototype.hasOwnProperty.call(req.query, 'checkbox0001')) {
     response = changeRange(req.query['checkbox0001']);
   }
-  console.log()
   return res.json({'no': 'worries'});
 });
 
