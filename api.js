@@ -18,6 +18,24 @@ app.get('/turnOff', (req, res) => {
   console.log('turn off');
 });
 
+
+app.get('/', (req, res) => {
+  return res.send('Received a GET HTTP method');
+});
+
+app.post('/', (req, res) => {
+  return res.send('Received a POST HTTP method');
+});
+
+app.put('/', (req, res) => {
+  return res.send('Received a PUT HTTP method');
+});
+
+app.delete('/', (req, res) => {
+  return res.send('Received a DELETE HTTP method');
+});
+
+
 // start the api
 app.listen(8000, () => {
   console.clear();
@@ -27,3 +45,5 @@ app.listen(8000, () => {
   console.log('in a browser, go to the raspberry pi ip address followed by /api')
   console.log();
 });
+
+
