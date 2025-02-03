@@ -62,7 +62,7 @@ const changeButton0001 = () => {
 const changCheckbox0001= () => {
   const checkbox0001 = document.getElementById('checkbox0001');
   if (checkbox0001 !== null) {
-    const url = `http://${serverIpAddress}:8000/?range0001=${checkbox0001.checked}`;
+    const url = `http://${serverIpAddress}:8000/?checkbox0001=${checkbox0001.checked}`;
     console.log(url);
     fetch(url).then((response) => console.log(response));
   }

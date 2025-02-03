@@ -37,8 +37,8 @@ const changeButton = () => {
 const changeCheckbox = (
   inputText,
 ) => {
-  response = `checkbox0001 =  ${inputText}`;
-  console.log(`checkbox0001 =  ${inputText}`);
+  response = `checkbox0001 = ${inputText}`;
+  console.log(`checkbox0001 = ${inputText}`);
   return response;
 };
 
