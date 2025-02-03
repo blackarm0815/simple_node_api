@@ -31,11 +31,10 @@ edit the index.html file with nano and update the ip address in serverIpAddress 
 > nano index.html
 
 put the html file in place
-> sudo mkdir /var/www/html/api
 
-> sudo cp index.html /var/www/html/api
+> sudo cp index.html /var/www/html
 
-> sudo cp favicon.ico /var/www/html/api
+> sudo cp favicon.ico /var/www/html
 
 start a tmux session
 > tmux new -s api
@@ -51,6 +50,6 @@ list running tmux sessions
 reattach the tmux session
 > tmux attach -t api
 
-put the raspberry ip address in a browser followed by /api
+put the raspberry ip address in a browser followed
 
-click buttons and watch the tmux output
+interact with the html elements and watch the tmux output
