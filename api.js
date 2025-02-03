@@ -23,8 +23,8 @@ const changeRange = (
 const changeText = (
   inputText,
 ) => {
-  response = `text input =  ${inputText}`;
-  console.log(`text input =  ${inputText}`);
+  response = `text input = ${inputText}`;
+  console.log(`text input = ${inputText}`);
   return response;
 };
 
