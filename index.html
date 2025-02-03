@@ -8,23 +8,21 @@
       font-size: 200%;
     }
     #zoom { 
-      zoom: 4; 
-      -moz-transform: scale(4); 
-      -moz-transform-origin: 0 0;
+      zoom: 4.2;
     }   
   </style>
   <body>
     <div id = "zoom">
-      <input type="range" id="range_0001" value = "0" min="0" max="255" />
+      <input type="range" id="range0001" value = "0" min="0" max="255" />
       <br/>
       <br/>
-      <input type="text" id="name" name="name" required minlength="4" maxlength="8" size="10" />
+      <input type="text" id="textInput0001" required minlength="4" maxlength="8" size="10" />
       <br/>
       <br/>
-      <button id = 'button_0001' type='button'>press</button>
+      <button type='button' id = 'button0001'>press</button>
       <br/>
       <br/>
-      <input type="checkbox" id="checkbox_0001">
+      <input type="checkbox" id="checkbox0001">
     </div>
     <script>
 
@@ -39,9 +37,36 @@ const pinTurnOff = () => {
   fetch(`http://${serverIpAddress}:8000/turnOff`).then((response) => console.log(response));
 };
 
+const changRange0001 = () => {
+  const range0001 = document.getElementById('range0001');
+  if (range0001 !== null) {
+    console.log(`range0001 moved to ${range0001.value}`);
+  }
+};
+
+const changTextInput0001 = () => {
+  const textInput0001 = document.getElementById('textInput0001');
+  if (textInput0001 !== null) {
+    console.log(`textInput0001 = ${textInput0001.value}`);
+  }
+};
+
+const changeButton0001 = () => {
+  console.log('button0001 was pressed');
+};
+
+const changCheckbox0001= () => {
+  const textInput0001 = document.getElementById('checkbox0001');
+  if (textInput0001 !== null) {
+    console.log(`checkbox0001 = ${checkbox0001.checked}`);
+  }
+};
+
 const main = () => {
-  document.getElementById('turnOn').addEventListener('click', pinTurnOn);
-  document.getElementById('turnOff').addEventListener('click', pinTurnOff);
+  document.getElementById('range0001').addEventListener('change', changRange0001);
+  document.getElementById('textInput0001').addEventListener('change', changTextInput0001);
+  document.getElementById('button0001').addEventListener('click', changeButton0001);
+  document.getElementById('checkbox0001').addEventListener('click', changCheckbox0001);
 };
 
 main();
