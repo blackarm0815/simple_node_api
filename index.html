@@ -47,8 +47,9 @@ const message = (
 const changRange0001 = () => {
   const range0001 = document.getElementById('range0001');
   if (range0001 !== null) {
-    message(`range0001 moved to ${range0001.value}`);
-    fetch(`http://${serverIpAddress}:8000/turnOn`).then((response) => console.log(response));
+    const rangeValue = range0001.value;
+    message(`range0001 moved to ${rangeValue}`);
+    fetch(`http://localhost:8000/?range0001=${rangeValue}`).then((response) => console.log(response));
   }
 };
 
