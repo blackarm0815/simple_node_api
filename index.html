@@ -49,7 +49,7 @@ const changRange0001 = () => {
   if (range0001 !== null) {
     const rangeValue = range0001.value;
     message(`range0001 moved to ${rangeValue}`);
-    fetch(`http://localhost:8000/?range0001=${rangeValue}`).then((response) => console.log(response));
+    fetch(`http://${serverIpAddress}:8000/?range0001=${rangeValue}`).then((response) => console.log(response));
   }
 };
 
