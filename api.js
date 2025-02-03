@@ -2,43 +2,10 @@
 const express = require('./node_modules/express');
 const app = express();
 
-// turn on
-app.get('/turnOn', (req, res) => {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Headers", "X-Requested-With");
-  res.send();
-  console.log('turn on');
-});
-
-// turn on
-app.get('/turnOff', (req, res) => {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Headers", "X-Requested-With");
-  res.send();
-  console.log('turn off');
-});
-
-
-app.get('/', (req, res) => {
-  return res.send('Received a GET HTTP method');
-  console.log(req.body.text);
-});
-
-app.post('/', (req, res) => {
-  return res.send('Received a POST HTTP method');
-  console.log(req.body.text);
-});
-
 app.put('/', (req, res) => {
+  console.log(req);
   return res.send('Received a PUT HTTP method');
-  console.log(req.body.text);
 });
-
-app.delete('/', (req, res) => {
-  return res.send('Received a DELETE HTTP method');
-  console.log(req.body.text);
-});
-
 
 // start the api
 app.listen(8000, () => {
