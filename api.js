@@ -42,7 +42,7 @@ app.listen(8000, () => {
   console.log();
   console.log('api listening on port 8000');
   console.log()
-  console.log('in a browser, go to the raspberry pi ip address followed by /api')
+  console.log('in a browser, go to the raspberry pi ip address')
   console.log();
 });
 
