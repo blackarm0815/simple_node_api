@@ -28,6 +28,20 @@ const changeText = (
   return response;
 };
 
+const changeButton = () => {
+  response = 'button0001 was pressed';
+  console.log('button0001 was pressed');
+  return response;
+};
+
+const changeCheckbox = (
+  inputText,
+) => {
+  response = `checkbox0001 =  ${inputText}`;
+  console.log(`checkbox0001 =  ${inputText}`);
+  return response;
+};
+
 app.get('/', (req, res) => {
   let response = 'not understood';
 
@@ -43,12 +57,12 @@ app.get('/', (req, res) => {
 
   // check for servo update
   if (Object.prototype.hasOwnProperty.call(req.query, 'button0001')) {
-    response = changeRange(req.query['button0001']);
+    response = changeButton();
   }
 
   // check for servo update
   if (Object.prototype.hasOwnProperty.call(req.query, 'checkbox0001')) {
-    response = changeRange(req.query['checkbox0001']);
+    response = changeCheckbox(req.query['checkbox0001']);
   }
   return res.json({'no': 'worries'});
 });
