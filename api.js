@@ -1,6 +1,12 @@
+// Requiring module
+const express = require('express')
+const cors = require('cors')
 
-const express = require('./node_modules/express');
-const app = express();
+// Creating express app
+const app = express()
+
+// enabling CORS for any unknown origin(https://xyz.example.com)
+app.use(cors());
 
 const changeRange = (
   servoSettingText,
