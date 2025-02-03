@@ -21,18 +21,22 @@ app.get('/turnOff', (req, res) => {
 
 app.get('/', (req, res) => {
   return res.send('Received a GET HTTP method');
+  console.log(req);
 });
 
 app.post('/', (req, res) => {
   return res.send('Received a POST HTTP method');
+  console.log(req);
 });
 
 app.put('/', (req, res) => {
   return res.send('Received a PUT HTTP method');
+  console.log(req);
 });
 
 app.delete('/', (req, res) => {
   return res.send('Received a DELETE HTTP method');
+  console.log(req);
 });
 
 
