@@ -12,7 +12,7 @@ app.get('/', (req, res) => {
   if (Object.prototype.hasOwnProperty.call(req.query, 'button0001')) {
     response = `result is ${req.query['button0001']}`;
   }
-  return res.send().text(response);
+  return res.send(response);
 });
 
 // start the api
