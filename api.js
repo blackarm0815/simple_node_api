@@ -7,10 +7,14 @@ const app = express()
 app.use(cors());
 
 app.get('/', (req, res) => {
-  let response = 'not recognized';
   console.log(req.query);
-  if (Object.prototype.hasOwnProperty.call(req.query, 'button0001')) {
-    response = `result is ${req.query['button0001']}`;
+  //
+  let response = 'failure';
+  //
+  if (Object.prototype.hasOwnProperty.call(req.query, 'buttonPressed')) {
+    //
+    response = 'success';
+    //
   }
   return res.send(response);
 });
