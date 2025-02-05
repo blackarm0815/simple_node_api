@@ -5,7 +5,6 @@
 <body>
 <button type='button' id = 'testButton'>press</button>
 <script>
-
 const serverIpAddress = '192.168.1.84';
 
 const buttonPressed = () => {
@@ -13,11 +12,7 @@ const buttonPressed = () => {
   fetch(url).then((response) => console.log(response));
 };
 
-const main = () => {
-  document.getElementById('testButton').addEventListener('click', buttonPressed);
-};
-
-main();
+document.getElementById('testButton').addEventListener('click', buttonPressed);
 
 </script>
 </body>
