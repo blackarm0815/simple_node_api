@@ -16,7 +16,7 @@ app.get('/', (req, res) => {
     response = {'mission': 'accomplished'};
     //
   }
-  return res.json(response);
+  res.json(response);
 });
 
 // start the api
