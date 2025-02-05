@@ -2,9 +2,11 @@ const express = require('express')
 const cors = require('cors')
 const app = express()
 app.use(cors());
+
 let count = {'clicks': 0};
 
 app.get('/', (req, res) => {  
+  console.log(req);
   if (Object.prototype.hasOwnProperty.call(req.query, 'buttonPressed')) {
     count['clicks'] += 1;
   }
