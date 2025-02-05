@@ -9,14 +9,14 @@ app.use(cors());
 app.get('/', (req, res) => {
   console.log(req.query);
   //
-  let response = 'failure';
+  let response = {'mission': 'failed'};
   //
   if (Object.prototype.hasOwnProperty.call(req.query, 'buttonPressed')) {
     //
-    response = 'success';
+    response = {'mission': 'accomplished'};
     //
   }
-  return res.send(response);
+  return res.json(response);
 });
 
 // start the api
