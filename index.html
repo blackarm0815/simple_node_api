@@ -8,7 +8,11 @@
 const serverIpAddress = '192.168.1.84';
 
 const buttonPressed = () => {
-  const url = `http://${serverIpAddress}:8000/?buttonPressed=24`;
+  const url = `http://${serverIpAddress}:8000?buttonPressed=24&nat=awesome`;
+  console.log('');
+  console.log('sent -');
+  console.log(url);
+  console.log('recieved -');
   fetch(url)
   .then((response) => response.json())
   .then((data) => {
