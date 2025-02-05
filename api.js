@@ -2,16 +2,13 @@ const express = require('express')
 const cors = require('cors')
 const app = express()
 app.use(cors());
+let count = {'clicks': 0};
 
-app.get('/', (req, res) => {
-  console.log(req.query);
-  
-  let response = {'mission': 'failed'};
-  
+app.get('/', (req, res) => {  
   if (Object.prototype.hasOwnProperty.call(req.query, 'buttonPressed')) {
-    response = {'mission': 'accomplished'};
+    count['clicks'] += 1;
   }
-  res.json(response);
+  res.json(count);
 });
 
 // start the api

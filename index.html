@@ -9,7 +9,12 @@ const serverIpAddress = '192.168.1.84';
 
 const buttonPressed = () => {
   const url = `http://${serverIpAddress}:8000/?buttonPressed=24`;
-  fetch(url).then((response) => console.log(response));
+  fetch(url)
+  .then((response) => response.json())
+  .then((data) => {
+    console.log(data)
+  })
+  .catch(console.error);
 };
 
 document.getElementById('testButton').addEventListener('click', buttonPressed);
