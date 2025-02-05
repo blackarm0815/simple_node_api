@@ -1,7 +1,7 @@
 // Requiring module
 const express = require('express')
 const cors = require('cors')
-const rpio = require('node_modules/rpio/lib');
+const rpio = require('./node_modules/rpio/lib');
 const pin = 15;
 
 /*
