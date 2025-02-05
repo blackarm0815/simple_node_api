@@ -38,6 +38,7 @@ const serverIpAddress = '192.168.1.84';
 const showOutput = (
   response,
 ) => {
+  console.log(response);
   const output = document.getElementById('output');
   if (output !== null) {
     output.innerText = response;
