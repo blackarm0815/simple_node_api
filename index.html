@@ -50,7 +50,7 @@ const changRange0001 = () => {
   if (range0001 !== null) {
     const url = `http://${serverIpAddress}:8000/?range0001=${range0001.value}`;
     console.log(url);
-    fetch(url).then((response) => showOutput(response));
+    fetch(url).then((response) => showOutput(response.text().json));
   }
 };
 
@@ -59,14 +59,14 @@ const changTextInput0001 = () => {
   if (textInput0001 !== null) {
     const url = `http://${serverIpAddress}:8000/?textInput0001=${textInput0001.value}`;
     console.log(url);
-    fetch(url).then((response) => showOutput(response));
+    fetch(url).then((response) => showOutput(response.text().json()));
   }
 };
 
 const changeButton0001 = () => {
   const url = `http://${serverIpAddress}:8000/?button0001`;
   console.log(url);
-  fetch(url).then((response) => showOutput(response));
+  fetch(url).then((response) => showOutput(response.text().json()));
 };
 
 const changCheckbox0001= () => {
@@ -74,7 +74,7 @@ const changCheckbox0001= () => {
   if (checkbox0001 !== null) {
     const url = `http://${serverIpAddress}:8000/?checkbox0001=${checkbox0001.checked}`;
     console.log(url);
-    fetch(url).then((response) => showOutput(response));
+    fetch(url).then((response) => showOutput(response.text().json()));
   }
 };
 

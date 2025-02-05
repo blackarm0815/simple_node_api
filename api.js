@@ -55,7 +55,7 @@ app.get('/', (req, res) => {
   if (Object.prototype.hasOwnProperty.call(req.query, 'checkbox0001')) {
     response = changeCheckbox(req.query['checkbox0001']);
   }
-  return res.send('testing123');
+  return res.send().text('testing123');
 });
 
 // start the api
