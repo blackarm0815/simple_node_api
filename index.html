@@ -1,92 +1,24 @@
 <!doctype html>
 <html>
-  <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
-  <meta content="utf-8" http-equiv="encoding">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
-  <style>
-    #blink {
-      font-size: 200%;
-    }
-    #zoom { 
-      zoom: 4.2;
-    }
-    #output {
-      font-size: 300%;
-    }
-  </style>
-  <body>
-    <div id = "zoom">
-      <input type="range" id="range0001" value = "0" min="0" max="255" />
-      <br/>
-      <br/>
-      <input type="text" id="textInput0001" required minlength="4" maxlength="8" size="10" />
-      <br/>
-      <br/>
-      <button type='button' id = 'button0001'>press</button>
-      <br/>
-      <br/>
-      <input type="checkbox" id="checkbox0001">
-    </div>
-    <br/>
-    <br/>
-    <output id = "output"></output>
-    <script>
+<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+<meta content="utf-8" http-equiv="encoding">
+<body>
+<button type='button' id = 'testButton'>press</button>
+<script>
 
-// update this
 const serverIpAddress = '192.168.1.84';
 
-const showOutput = (
-  response,
-) => {
-  console.log(response);
-  const output = document.getElementById('output');
-  if (output !== null) {
-    output.innerText = response;
-  }
-}
-
-const changRange0001 = () => {
-  const range0001 = document.getElementById('range0001');
-  if (range0001 !== null) {
-    const url = `http://${serverIpAddress}:8000/?range0001=${range0001.value}`;
-    console.log(url);
-    fetch(url).then((response) => showOutput(response.text()));
-  }
-};
-
-const changTextInput0001 = () => {
-  const textInput0001 = document.getElementById('textInput0001');
-  if (textInput0001 !== null) {
-    const url = `http://${serverIpAddress}:8000/?textInput0001=${textInput0001.value}`;
-    console.log(url);
-    fetch(url).then((response) => showOutput(response.text()));
-  }
-};
-
-const changeButton0001 = () => {
-  const url = `http://${serverIpAddress}:8000/?button0001`;
-  console.log(url);
-  fetch(url).then((response) => showOutput(response.text()));
-};
-
-const changCheckbox0001= () => {
-  const checkbox0001 = document.getElementById('checkbox0001');
-  if (checkbox0001 !== null) {
-    const url = `http://${serverIpAddress}:8000/?checkbox0001=${checkbox0001.checked}`;
-    console.log(url);
-    fetch(url).then((response) => showOutput(response.text()));
-  }
+const buttonPressed = () => {
+  const url = `http://${serverIpAddress}:8000/?buttonPressed=24`;
+  fetch(url).then((response) => console.log(response));
 };
 
 const main = () => {
-  document.getElementById('range0001').addEventListener('input', changRange0001);
-  document.getElementById('textInput0001').addEventListener('change', changTextInput0001);
-  document.getElementById('button0001').addEventListener('click', changeButton0001);
-  document.getElementById('checkbox0001').addEventListener('click', changCheckbox0001);
+  document.getElementById('testButton').addEventListener('click', buttonPressed);
 };
 
 main();
 
-    </script>
-  </body>
+</script>
+</body>
 </html>
