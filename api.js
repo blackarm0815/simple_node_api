@@ -1,6 +1,15 @@
 // Requiring module
 const express = require('express')
 const cors = require('cors')
+const rpio = require('node_modules/rpio');
+const pin = 15;
+
+/*
+* Configure the pin for output, setting it low initially.  The state is set
+* prior to the pin being activated, so is suitable for devices which require
+* a stable setup.
+*/
+rpio.open(pin, rpio.OUTPUT, rpio.LOW);
 
 // Creating express app
 const app = express()
@@ -39,6 +48,12 @@ const changeCheckbox = (
 ) => {
   response = `checkbox0001 = ${inputText}`;
   console.log(`checkbox0001 = ${inputText}`);
+  if (inputText === 'true') {
+    rpio.write(pin, rpio.HIGH);
+  }
+  if (inputText === 'false') {
+    rpio.write(pin, rpio.LOW);
+  }
   return response;
 };
 
