@@ -1,20 +1,9 @@
 // Requiring module
 const express = require('express')
 const cors = require('cors')
-const rpio = require('rpio');
-const pin = 15;
-
-/*
-* Configure the pin for output, setting it low initially.  The state is set
-* prior to the pin being activated, so is suitable for devices which require
-* a stable setup.
-*/
-rpio.open(pin, rpio.OUTPUT, rpio.LOW);
-
-// Creating express app
 const app = express()
 
-// enabling CORS for any unknown origin(https://xyz.example.com)
+
 app.use(cors());
 
 const changeRange = (
@@ -24,7 +13,6 @@ const changeRange = (
   const rangeValue = parseInt(rangeValueText, 10);
   if (!Number.isNaN(rangeValue)) {
     response = `range set to ${rangeValue}`;
-    console.log(`range set to ${rangeValue}`);
   }
   return response;
 };
@@ -32,29 +20,17 @@ const changeRange = (
 const changeText = (
   inputText,
 ) => {
-  response = `text input = ${inputText}`;
-  console.log(`text input = ${inputText}`);
-  return response;
+  return `text input = ${inputText}`;
 };
 
 const changeButton = () => {
-  response = 'button0001 was pressed';
-  console.log('button0001 was pressed');
-  return response;
+  return 'button0001 was pressed';
 };
 
 const changeCheckbox = (
   inputText,
 ) => {
-  response = `checkbox0001 = ${inputText}`;
-  console.log(`checkbox0001 = ${inputText}`);
-  if (inputText === 'true') {
-    rpio.write(pin, rpio.HIGH);
-  }
-  if (inputText === 'false') {
-    rpio.write(pin, rpio.LOW);
-  }
-  return response;
+  return `checkbox0001 = ${inputText}`;
 };
 
 app.get('/', (req, res) => {
@@ -79,7 +55,7 @@ app.get('/', (req, res) => {
   if (Object.prototype.hasOwnProperty.call(req.query, 'checkbox0001')) {
     response = changeCheckbox(req.query['checkbox0001']);
   }
-  return res.json({'no': 'worries'});
+  return res.send(response);
 });
 
 // start the api
