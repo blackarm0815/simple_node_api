@@ -32,7 +32,7 @@ app.get('/', (req, res) => {
       wordCount[word] = 0;
     }
     // count the word
-    wordCount[word] = 1;
+    wordCount[word] += 1;
     // send back an object response
     response = wordCount;
   }
