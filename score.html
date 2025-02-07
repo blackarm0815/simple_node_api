@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+<meta content="utf-8" http-equiv="encoding">
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<style>
+</style>
+<body>
+<div id = "output"></div>
+<script>
+
+const serverIpAddress = '192.168.1.84';
+
+const showScores = (
+  data,
+) => {
+  const outputDiv = document.getElementById('output');
+  if (outputDiv !== null) {
+    outputDiv.innerText = JSON.stringify(data, null, 2);
+  }
+};
+const main = () => {
+  const url = `http://${serverIpAddress}:8000/scores`;
+  fetch(url)
+  .then((response) => response.json())
+  .then((data) => {
+    showScores(data)
+  })
+  .catch(console.error);
+};
+  
+main();
+
+</script>
+</body>
+</html>
