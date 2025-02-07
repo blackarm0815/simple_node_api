@@ -57,6 +57,18 @@ app.get('/', (req, res) => {
   res.json(response);
 });
 
+app.get('/scores', (req, res) => {
+  //
+  const scores = {
+    'alpha': 0,
+    'bravo': 1,
+    'charlie': 2,
+    'delta': 3,
+  };
+
+  res.json(scores);
+});
+
 // start the api
 app.listen(8000, () => {
   console.clear();
