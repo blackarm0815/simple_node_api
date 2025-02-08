@@ -1,10 +1,17 @@
 const express = require('express')
 const cors = require('cors')
+const { spawn } = require("child_process");
 const app = express()
 app.use(cors());
 
 let clickCount = {'clicks': 0};
 let wordCount = {};
+
+
+const bell = () => {
+  // trigger a linux command that 
+  spawn("ogg123", ["/usr/share/sounds/freedesktop/stereo/bell.oga"]);
+};
 
 const gameWebsiteApiThing = (
   req,
@@ -68,6 +75,12 @@ const controls = (
   }
   return response;
 };
+
+app.get('/bell', (req, res) => {
+  //
+  bell();
+  res.json({});
+});
 
 app.get('/boom', (req, res) => {
   //
