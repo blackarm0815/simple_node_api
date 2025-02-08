@@ -69,6 +69,12 @@ app.get('/scores', (req, res) => {
   res.json(scores);
 });
 
+app.get('/joystick', (req, res) => {
+  //
+  console.log(req.query);
+  res.json({});
+});
+
 // start the api
 app.listen(8000, () => {
   console.clear();
