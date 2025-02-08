@@ -9,22 +9,30 @@
 <style>
 
 body {
-    position: fixed;
-    overflow: hidden;
+  position: fixed;
+  overflow: hidden;
 }
 #background {
-    position: absolute;
+  position: absolute;
 }
-.joystick {
-    background-color: #e1e1e1;
-    position: absolute;
+#joystick0 {
+  background-color: #e1e1e1;
+  position: absolute;
+}
+#joystick1 {
+  background-color: #e1e1e1;
+  position: absolute;
+}
+#url {
+  position: absolute;
 }
 
 </style>
 </head>
 <body>
-<div id = 'joystick0' class = 'joystick'></div>
-<div id = 'joystick1' class = 'joystick'></div>
+<div id = 'joystick0'></div>
+<div id = 'joystick1'></div>
+<div id = 'url'></div>
 <script>
         
 // dimensions
@@ -54,9 +62,17 @@ const resizeDivs = () => {
   const divJoystick1 = document.getElementById('joystick1');
   if (divJoystick1 !== null) {
     divJoystick1.style.height = `${joystickHeight}px`;
-    divJoystick1.style.left = `${joystick0Left}px`;
+    divJoystick1.style.left = `${joystick1Left}px`;
     divJoystick1.style.top = `${joystickTop}px`;
     divJoystick1.style.width = `${joystickWidth}px`;
+  }
+  // url
+  const url = document.getElementById('url');
+  if (url !== null) {
+    url.style.height = '20px';
+    url.style.left = '0px';
+    url.style.top = '0px';
+    url.style.width = '600px';
   }
 };
 const checkJoystick = (touch) => {
@@ -97,6 +113,10 @@ const checkJoystick = (touch) => {
     console.log(data)
   })
   .catch(console.error);
+  const urlDiv = document.getElementById('url');
+  if (urlDiv !== null) {
+    urlDiv.innerText = url;
+  }
 };
 const touching = (touchEvent) => {
   checkJoystick(touchEvent.touches[0]);
