@@ -30,11 +30,9 @@ install node dependencies
 edit the index.html file with nano and update the ip address in serverIpAddress (ctrl x to exit)
 > nano index.html
 
-put the html file in place
+put the web content into place
 
-> sudo cp index.html /var/www/html
-
-> sudo cp favicon.ico /var/www/html
+> sudo cp -r html/* /var/www/html
 
 start a tmux session
 > tmux new -s api
