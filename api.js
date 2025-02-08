@@ -71,6 +71,7 @@ app.get('/scores', (req, res) => {
 
 app.get('/joystick', (req, res) => {
   //
+  console.clear();
   console.log(req.query);
   res.json({});
 });
