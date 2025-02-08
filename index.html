@@ -39,13 +39,13 @@ const changRange0001 = () => {
   const range0001 = document.getElementById('range0001');
   if (range0001 !== null) {
     const url = `http://${serverIpAddress}:8000/?range0001=${range0001.value}`;
-  console.log(url);
-  fetch(url)
-  .then((response) => response.json())
-  .then((data) => {
-    console.log(data)
-  })
-  .catch(console.error);
+    console.log(url);
+    fetch(url)
+    .then((response) => response.json())
+    .then((data) => {
+      console.log(data)
+    })
+    .catch(console.error);
   }
 };
 

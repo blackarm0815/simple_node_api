@@ -6,6 +6,32 @@ app.use(cors());
 let clickCount = {'clicks': 0};
 let wordCount = {};
 
+
+app.get('/scores', (req, res) => {
+  //
+  const scores = {
+    'alpha': 0,
+    'bravo': 1,
+    'charlie': 2,
+    'delta': 3,
+  };
+
+  res.json(scores);
+});
+
+app.get('/joystick', (req, res) => {
+  //
+  console.clear();
+  console.log(req.query);
+  res.json({});
+});
+
+app.get('/boom', (req, res) => {
+  //
+  console.log('boom');
+  res.json({});
+});
+
 app.get('/', (req, res) => {
   //
   let rangeValue = 0;
@@ -55,25 +81,6 @@ app.get('/', (req, res) => {
   }
 
   res.json(response);
-});
-
-app.get('/scores', (req, res) => {
-  //
-  const scores = {
-    'alpha': 0,
-    'bravo': 1,
-    'charlie': 2,
-    'delta': 3,
-  };
-
-  res.json(scores);
-});
-
-app.get('/joystick', (req, res) => {
-  //
-  console.clear();
-  console.log(req.query);
-  res.json({});
 });
 
 // start the api

@@ -12,7 +12,8 @@ body {
   position: fixed;
   overflow: hidden;
 }
-#background {
+#boom {
+  background-color: #ff0000;
   position: absolute;
 }
 #joystick0 {
@@ -34,6 +35,7 @@ body {
 <div id = 'joystick0'></div>
 <div id = 'joystick1'></div>
 <div id = 'url'></div>
+<div id = 'boom'></div>
 <script>
         
 // dimensions
@@ -42,6 +44,10 @@ const joystickWidth = 200;
 const joystickTop = 20;
 const joystick0Left = 20;
 const joystick1Left = 400;
+const boomHeight = 60;
+const boomLeft = 280;
+const boomTop = 80;
+const boomWidth = 60;
 // readings
 let joystickLeftHorizontal = 0;
 let joystickLeftVertical = 0;
@@ -51,8 +57,16 @@ let joystickRightVertical = 0;
 const serverIpAddress = '192.168.1.84';
 
 const resizeDivs = () => {
-    // joystick0
-    const divJoystick0 = document.getElementById('joystick0');
+  // boom
+  const boom = document.getElementById('boom');
+  if (boom !== null) {
+    boom.style.height = `${boomHeight}px`;
+    boom.style.left = `${boomLeft}px`;
+    boom.style.top = `${boomTop}px`;
+    boom.style.width = `${boomWidth}px`;
+  }
+  // joystick0
+  const divJoystick0 = document.getElementById('joystick0');
   if (divJoystick0 !== null) {
     divJoystick0.style.height = `${joystickHeight}px`;
     divJoystick0.style.left = `${joystick0Left}px`;
@@ -125,9 +139,18 @@ const touching = (touchEvent) => {
     checkJoystick(touchEvent.touches[1]);
   }
 };
+const boom = () => {
+  fetch(`http://${serverIpAddress}:8000/boom`)
+  .then((response) => response.json())
+  .then((data) => {
+    console.log(data)
+  })
+  .catch(console.error);
+};
 const listeners = () => {
   window.addEventListener('resize', resizeDivs);
   document.addEventListener('touchmove', touching);
+  document.getElementById('boom').addEventListener('click', boom);
 };
 const main = () => {
   listeners();
