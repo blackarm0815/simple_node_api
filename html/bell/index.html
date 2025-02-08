@@ -1,0 +1,34 @@
+<!doctype html>
+<html>
+<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+<meta content="utf-8" http-equiv="encoding">
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<style>
+</style>
+<body>
+<button id = 'bell'>bell</button>
+<script>
+
+const serverIpAddress = '192.168.1.84';
+
+const ringBell = () => {
+  const url = `http://${serverIpAddress}:8000/bell`;
+  fetch(url)
+  .then((response) => response.json())
+  .then((data) => {
+    console.log(data)
+  })
+  .catch(console.error);
+};
+const main = () => {
+  const bell = document.getElementById('bell');
+  if (bell !== null) {
+    bell.addEventListener('click', ringBell);
+  }
+};
+  
+main();
+
+</script>
+</body>
+</html>
