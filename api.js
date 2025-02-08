@@ -6,41 +6,28 @@ app.use(cors());
 let clickCount = {'clicks': 0};
 let wordCount = {};
 
-
-app.get('/scores', (req, res) => {
-  //
+const gameWebsiteApiThing = (
+  req,
+) => {
+  // this doesn't do much right now, but the game website api thing could go here
   const scores = {
     'alpha': 0,
     'bravo': 1,
     'charlie': 2,
     'delta': 3,
   };
+  return scores;
+};
 
-  res.json(scores);
-});
-
-app.get('/joystick', (req, res) => {
-  //
-  console.clear();
-  console.log(req.query);
-  res.json({});
-});
-
-app.get('/boom', (req, res) => {
-  //
-  console.log('boom');
-  res.json({});
-});
-
-app.get('/', (req, res) => {
+const controls = (
+  req,
+) => {
   //
   let rangeValue = 0;
-  let reponse = {};
+  let response = {};
   let word = '';
   //
   console.log(req.query);
-
-
   // does the query object contain range0001
   if (Object.prototype.hasOwnProperty.call(req.query, 'range0001')) {
     // extract the range value
@@ -79,8 +66,29 @@ app.get('/', (req, res) => {
       response = {'checkbox0001State': false};
     }
   }
+  return response;
+};
 
+app.get('/boom', (req, res) => {
+  //
+  console.log('boom');
+  res.json({});
+});
+
+app.get('/controls', (req, res) => {
+  const response = controls(req);
   res.json(response);
+});
+
+app.get('/joystick', (req, res) => {
+  console.clear();
+  console.log(req.query);
+  res.json({});
+});
+
+app.get('/scores', (req, res) => {
+  const response = gameWebsiteApiThing(req);
+  res.json(scores);
 });
 
 // start the api

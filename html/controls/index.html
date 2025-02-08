@@ -38,7 +38,7 @@ const serverIpAddress = '192.168.1.84';
 const changRange0001 = () => {
   const range0001 = document.getElementById('range0001');
   if (range0001 !== null) {
-    const url = `http://${serverIpAddress}:8000/?range0001=${range0001.value}`;
+    const url = `http://${serverIpAddress}:8000/controls/?range0001=${range0001.value}`;
     console.log(url);
     fetch(url)
     .then((response) => response.json())
@@ -52,7 +52,7 @@ const changRange0001 = () => {
 const changTextInput0001 = () => {
   const textInput0001 = document.getElementById('textInput0001');
   if (textInput0001 !== null) {
-    const url = `http://${serverIpAddress}:8000/?textInput0001=${textInput0001.value}`;
+    const url = `http://${serverIpAddress}:8000/controls/?textInput0001=${textInput0001.value}`;
   console.log(url);
   fetch(url)
   .then((response) => response.json())
@@ -64,7 +64,7 @@ const changTextInput0001 = () => {
 };
 
 const changeButton0001 = () => {
-  const url = `http://${serverIpAddress}:8000/?button0001`;
+  const url = `http://${serverIpAddress}:8000/controls/?button0001`;
   console.log(url);
   fetch(url)
   .then((response) => response.json())
@@ -77,7 +77,7 @@ const changeButton0001 = () => {
 const changCheckbox0001= () => {
   const checkbox0001 = document.getElementById('checkbox0001');
   if (checkbox0001 !== null) {
-    const url = `http://${serverIpAddress}:8000/?checkbox0001=${checkbox0001.checked}`;
+    const url = `http://${serverIpAddress}:8000/controls/?checkbox0001=${checkbox0001.checked}`;
   console.log(url);
   fetch(url)
   .then((response) => response.json())

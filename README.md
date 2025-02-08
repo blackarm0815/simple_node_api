@@ -18,7 +18,14 @@ find the raspberry pi ip addess and take a note of install (look under the wlan0
 ## ssh in and work remotely from this point
 
 install stuff
-> sudo apt install -y tmux git nginx nodejs npm
+> sudo apt install -y tmux git nginx nodejs npm vorbis-tools
+
+tmux - runs the api even after ssh disconnects
+git - for pulling the software repo
+nginx - lightweight web server for handling the web pages
+nodejs - runs javascript on the server
+npm - node package manager for handling dependencies
+vorbis-tools - can play audio files on the command line
 
 pull this repo
 > git clone https://github.com/blackarm0815/simple_node_api.git
