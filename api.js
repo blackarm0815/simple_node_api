@@ -88,7 +88,7 @@ app.get('/joystick', (req, res) => {
 
 app.get('/scores', (req, res) => {
   const response = gameWebsiteApiThing(req);
-  res.json(scores);
+  res.json(response);
 });
 
 // start the api
